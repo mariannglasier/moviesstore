@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Subscription!</h2>
+
+<p>Total Spent: ${{ template_data.total_spent|floatformat:2 }}</p>
+<p>Subscription Level: <strong>{{ template_data.subscription_level }}</strong></p>
+{% endblock content %}

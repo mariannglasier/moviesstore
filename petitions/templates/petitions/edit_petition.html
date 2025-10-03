@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="p-3">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col mx-auto mb-3">
+        <h2>Edit Petition</h2>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-5 mx-auto">
+        <form method="POST" action="{% url 'petitions.edit_petition' petition_id=template_data.petition.id %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="title" class="form-label">Movie</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ template_data.petition.title }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Why add this movie?</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required>{{ template_data.petition.description }}</textarea>
+          </div>
+          <button type="submit" class="btn bg-dark text-white">Update Petition</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
